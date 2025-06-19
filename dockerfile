@@ -1,20 +1,20 @@
-# Use a Node.js base image
+# Use official Node.js image
 FROM node:14
 
-# Create app directory
+# Set working directory
 WORKDIR /app
 
-# Copy dependency files first
+# Copy package files first
 COPY package*.json ./
 
-# Install app dependencies
+# Install dependencies
 RUN npm install
 
-# Copy the rest of the code
+# Copy all source code
 COPY . .
 
-# Expose the port the app runs on
+# Expose port (if your app uses a different one, change this)
 EXPOSE 3000
 
-# Start the application
-CMD ["node", "app.js"]
+# Start the app
+CMD ["npm", "start"]
