@@ -1,21 +1,16 @@
-# Use official Node.js image
+# Old version (❌ probably causing the issue)
+# FROM node:14
 
+# ✅ Use at least Node 16
 FROM node:18
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files first
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy all source code
 COPY . .
 
-# Expose port (if your app uses a different one, change this)
-EXPOSE 3000
+EXPOSE 3005
 
-# Start the app
-CMD ["npm", "start"]
+CMD ["node", "app.js"]
